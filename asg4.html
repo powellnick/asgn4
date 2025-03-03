@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Asg3 with Lighting</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden; /* Prevent scrolling */
+    }
+
+    #canvasContainer {
+      position: relative;
+      width: 100vw;
+      height: 600px;
+    }
+
+    #webgl {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    #statusMessage {
+      position: absolute;
+      pointer-events: none;
+      color: yellow;
+      font-size: 18px;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 9999;
+    }
+
+    #controlsPanel {
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body onload="main()">
+  <div id="canvasContainer">
+    <canvas id="webgl" width="600" height="600">
+      Please use a browser that supports "canvas"
+    </canvas>
+    <div id="statusMessage"></div>
+  </div>
+
+  <p id="fps">ms: 0, fps: 0</p>
+
+  <p>
+    You can click and drag, or use the keys below to explore and navigate:
+    <br>W : Move Forwards
+    <br>S : Move Backwards
+    <br>A : Move Left
+    <br>D : Move Right
+    <br>Q : Look Left
+    <br>E : Look Right
+  </p>
+
+  <!-- Light controls -->
+<p>
+  <label>Light X:
+    <input type="range" id="lightXSlider" min="-10" max="10" step="0.1" value="2"/>
+  </label>
+  <label>Light Y:
+    <input type="range" id="lightYSlider" min="-10" max="10" step="0.1" value="2"/>
+  </label>
+  <label>Light Z:
+    <input type="range" id="lightZSlider" min="-10" max="10" step="0.1" value="2"/>
+  </label>
+</p>
+<p>
+  <label>R:
+    <input type="range" id="lightRSlider" min="0" max="1" step="0.01" value="1"/>
+  </label>
+  <label>G:
+    <input type="range" id="lightGSlider" min="0" max="1" step="0.01" value="1"/>
+  </label>
+  <label>B:
+    <input type="range" id="lightBSlider" min="0" max="1" step="0.01" value="1"/>
+  </label>
+</p>
+
+
+  <!-- Controls for Light -->
+  <div id="controlsPanel">
+    <button onclick="toggleNormalVisualization()">Toggle Normal Visualization</button>
+    <button onclick="toggleLight()">Toggle Light</button>
+    <button onclick="toggleLightAnimation()">Toggle Light Animation</button>
+    <button onclick="toggleSpotLight()">Toggle Spotlight</button>
+  </div>
+
+  <!-- Script dependencies -->
+  <script src="lib/webgl-utils.js"></script>
+  <script src="lib/webgl-debug.js"></script>
+  <script src="lib/cuon-utils.js"></script>
+  <script src="lib/cuon-matrix-cse160.js"></script>
+  <script src="Cube.js"></script>
+  <script src="sphere.js"></script>
+  <script src="camera.js"></script>
+  <script src="asg4.js"></script>
+</body>
+</html>
