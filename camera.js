@@ -1,5 +1,3 @@
-//nick
-
 // camera.js
 
 class Camera {
